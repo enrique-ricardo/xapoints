@@ -1,4 +1,5 @@
-import express, { Router } from 'express';
+import { router } from './routes/router';
+import express from 'express';
 import path from 'path';
 import { PORT } from './config';
 
@@ -10,7 +11,7 @@ app.use(express.static(path_static_files));
 
 app.use(express.urlencoded({extended:false}));
 
-app.use("/", Router);
+app.use("/", router);
 
 app.listen(PORT, ()=>{
   console.log(`Escuchando en el puerto ${PORT}`);
